@@ -1,0 +1,17 @@
+{
+    "name": "de1vin/route-calculator",
+    "description": "Calculates the length of the path between cities.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit-mock-objects": "7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zinchenko Vladimir",
+            "email": "de1vin@ya.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
