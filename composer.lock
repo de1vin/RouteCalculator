@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "665e48950e1d16e9a92b41c595305607",
+    "content-hash": "d48bcd31f882b31ce6906b63274a949c",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -883,12 +883,13 @@
         "maxh/php-nominatim": 20,
         "psr/simple-cache": 20,
         "cache/void-adapter": 20,
+        "guzzlehttp/guzzle": 20,
         "cache/filesystem-adapter": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-json": "^1.6"
+        "ext-json": "^1.0"
     },
     "platform-dev": []
 }

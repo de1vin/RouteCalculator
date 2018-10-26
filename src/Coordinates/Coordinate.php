@@ -22,6 +22,11 @@ class Coordinate
         $this->address = $address;
     }
 
+    public function __toString(): string
+    {
+        return $this->latitude . ',' . $this->longitude;
+    }
+
     /**
      * @return float
      */

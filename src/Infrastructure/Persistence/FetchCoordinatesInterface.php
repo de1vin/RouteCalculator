@@ -5,5 +5,5 @@ namespace de1vin\RouteCalculator\Infrastructure\Persistence;
 
 interface FetchCoordinatesInterface
 {
-    public function fetch(string $address): array;
+    public function fetch(string $address): CoordinateDto;
 }

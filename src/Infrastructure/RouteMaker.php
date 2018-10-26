@@ -12,15 +12,16 @@ use de1vin\RouteCalculator\Routes\Route;
 
 class RouteMaker implements RouteMakerInterface
 {
+    /** @var FetchDistanceInterface|string */
     public $fetchClass = FetchDistanceOSRM::class;
 
 
     public function route(Coordinate $from, Coordinate $to): Route
     {
-        /** @var FetchDistanceInterface $fetch */
-        $fetch = new $this->fetchClass;
-        $response = $fetch->fetch($from, $to);
-        $distance = (float)$response['routes'][0]["distance"];
+        if (is_string($this->fetchClass)) {
+            $this->fetchClass = new $this->fetchClass;
+        }
+        $distance = $this->fetchClass->fetch($from, $to);
         $route = new Route($from, $to, $distance);
 
         return $route;

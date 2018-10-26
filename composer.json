@@ -15,9 +15,10 @@
     "minimum-stability": "dev",
     "require": {
         "maxh/php-nominatim": "dev-master",
-        "ext-json": "^1.6",
+        "ext-json": "^1.0",
         "psr/simple-cache": "^1.0@dev",
-        "cache/void-adapter": "^1.1@dev"
+        "cache/void-adapter": "^1.1@dev",
+        "guzzlehttp/guzzle": "^6.3@dev"
     },
     "autoload": {
         "psr-4": {

@@ -7,5 +7,5 @@ use de1vin\RouteCalculator\Coordinates\Coordinate;
 
 interface FetchDistanceInterface
 {
-    public function fetch(Coordinate $from, Coordinate $to): array;
+    public function fetch(Coordinate $from, Coordinate $to): float;
 }

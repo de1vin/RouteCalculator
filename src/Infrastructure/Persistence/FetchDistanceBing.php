@@ -8,25 +8,29 @@ use de1vin\RouteCalculator\Coordinates\Coordinate;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
-class FetchDistanceOSRM implements FetchDistanceInterface
+class FetchDistanceBing implements FetchDistanceInterface
 {
     private $client;
+    private $key;
 
-    public function __construct()
+    public function __construct(string $key)
     {
         $this->client = new Client();
+        $this->key = $key;
     }
 
     public function fetch(Coordinate $from, Coordinate $to): float
     {
         $url = sprintf(
-            'http://router.project-osrm.org/route/v1/car/%s,%s;%s,%s?overview=false&',
-            $from->getLatitude(), $from->getLongitude(),
-            $to->getLatitude(), $to->getLongitude()
+            'https://dev.virtualearth.net/REST/v1/Routes/Truck?wp.0=%s&wp.1=%s&du=km&key=%s',
+            (string)$from,
+            (string)$to,
+            $this->key
         );
         $requiest = new Request('GET', $url);
         $response = $this->client->send($requiest);
         $result = \json_decode($response->getBody()->getContents(), true);
-        return (float)$result['routes'][0]["distance"] / 1000;
+        $result = (float)$result['resourceSets'][0]['resources'][0]['travelDistance'];
+        return $result;
     }
 }
